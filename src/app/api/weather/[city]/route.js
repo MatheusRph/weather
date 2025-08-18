@@ -6,6 +6,7 @@ import axios from "axios";
 // Tradução completa dos códigos de clima
 import { traducaoClima } from "@/utils/weatherTranslation";
 
+// Chave api para fazer o consumo da api
 const apiKey = process.env.WEATHER_API_KEY;
 
 export async function GET(request, { params }) {
