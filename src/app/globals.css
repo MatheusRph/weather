@@ -40,3 +40,41 @@ a {
     color-scheme: dark;
   }
 }
+
+/* Grupo principal */
+.custom-search {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+  transition: all 0.25s ease-in-out;
+}
+
+/* Comportamento no foco (todo o grupo muda) */
+.custom-search:focus-within {
+  border-color: #adb5bd;
+  background-color: #f8f9fa;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+/* Ícone (lado esquerdo) */
+.search-icon {
+  background: transparent !important; /* pega a cor do grupo */
+  border: none !important;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+/* Input */
+.search-input {
+  border: none !important;
+  box-shadow: none !important;
+  transition: all 0.25s ease-in-out;
+}
+
+.search-input:focus {
+  outline: none;
+  background-color: #F8F9FA !important;
+  box-shadow: none !important;
+}
