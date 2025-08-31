@@ -1,7 +1,8 @@
 'use client'
 
-import { Row, Col, Container, Card } from "react-bootstrap"
+import { Row, Col, Container, Card, ListGroup } from "react-bootstrap"
 import { useState, useEffect } from "react";
+import { BsWind, BsDroplet } from "react-icons/bs";
 
 export default function Temp() {
 
@@ -40,25 +41,73 @@ export default function Temp() {
 
       <header className="text-center text-white">{data.name}</header>
 
-      <Row>
+      <Row className="justify-content-between m-5">
         <Col md={4}>
-          <Card className="bg-primary text-light mt-5 mb-3 p-3 text-center">
+          <Card className="p-3 bg-primary text-light text-start">
+
             <h1>16°C</h1>
             <h4>Storm with Rain</h4>
             {/* Ícone grande do clima */}
-            <img src="/storm-icon.png" alt="storm" style={{ width: '150px' }} />
-            <Row className="mt-3">
-              <Col>Vento: {data.wind_speed_kmh}km/h</Col>
-              <Col>Umidade: {data.humidity}%</Col>
+            <Row className="mt-3 text-start">
+              <Col>
+                <p className="fw-bold mb-1">
+                  <BsWind className="me-1" /> Vento
+                </p>
+                <p>{data.wind_speed_kmh} km/h</p>
+              </Col>
+              <Col>
+                <p className="fw-bold mb-1">
+                  <BsDroplet className="me-1" /> Umidade
+                </p>
+                <p>{data.humidity}%</p>
+              </Col>
             </Row>
           </Card>
         </Col>
-        <Col md={4}>
-          {/* Previsão semanal (Cards) */}
+        <Col className="justify-content-center p-3 align-items-center" md={4}>
+          <Card className="">
+            <Card.Header>Featured</Card.Header>
+            <ListGroup variant="flush">
+              <ListGroup.Item>
+                <Row className="align-items-center">
+                  {/* Ícone */}
+                  <Col xs="auto">
+                    <img src="/icons/cloud.png" alt="Clima" width={32} height={32} />
+                  </Col>
+
+                  {/* Dia e temperatura */}
+                  <Col>
+                    <div className="d-flex justify-content-between">
+                      <span>Terça</span>
+                      <span>30°</span>
+                    </div>
+                    <div className="text-muted" style={{ fontSize: "0.9rem" }}>Chuva</div>
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+
+              <ListGroup.Item>
+                <Row className="align-items-center">
+                  {/* Ícone */}
+                  <Col xs="auto">
+                    <img src="/icons/cloud.png" alt="Clima" width={32} height={32} />
+                  </Col>
+
+                  {/* Dia e temperatura */}
+                  <Col>
+                    <div className="d-flex justify-content-between">
+                      <span>Terça</span>
+                      <span>30°</span>
+                    </div>
+                    <div className="text-muted" style={{ fontSize: "0.9rem" }}>Chuva</div>
+                  </Col>
+                </Row>
+              </ListGroup.Item>
+            </ListGroup>
+
+          </Card>
         </Col>
       </Row>
-
-
     </Container>
   )
 }
